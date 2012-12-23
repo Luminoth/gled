@@ -130,7 +130,7 @@ void Scene::create_scene_graph()
     _pickable_renderables.clear();
 _lit_renderables.clear();
 
-    BOOST_FOREACH(boost::shared_ptr<Renderlable> renderable, _renderables) {
+    BOOST_FOREACH(boost::shared_ptr<Renderable> renderable, _renderables) {
         if(_camera.visible(renderable->absolute_bounds())) {
             // TODO: add transparent renderables to a separate list
             if(renderable->is_transparent()) {
@@ -151,7 +151,7 @@ _lit_renderables.push_back(renderable);
     }
 
     // sort the renderables for "efficient" rendering (lol)
-    _visible_renderables.sort(CompareRenderablesOpaque(_camera.position()));
+    std::sort(_visible_renderables.begin(), _visible_renderables.end(), CompareRenderablesOpaque(_camera.position()));
 }
 
 void Scene::render_geometry()
@@ -213,7 +213,7 @@ void Scene::callback(float percent, const std::string& status)
 
 bool Scene::scan_map(Lexer& lexer)
 {
-    if(!lexer.match(MAP)) {
+    if(!lexer.match(DoomLexer::MAP)) {
         return false;
     }
 
@@ -236,7 +236,7 @@ bool Scene::scan_map(Lexer& lexer)
 
 bool Scene::scan_global_ambient_color(Lexer& lexer)
 {
-    if(!lexer.match(GLOBAL_AMBIENT_COLOR)) {
+    if(!lexer.match(DoomLexer::GLOBAL_AMBIENT_COLOR)) {
         return false;
     }
 
@@ -269,15 +269,15 @@ bool Scene::scan_global_ambient_color(Lexer& lexer)
 
 bool Scene::scan_models(Lexer& lexer)
 {
-    if(!lexer.match(MODELS)) {
+    if(!lexer.match(DoomLexer::MODELS)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
-    while(!lexer.check_token(CLOSE_BRACE)) {
+    while(!lexer.check_token(Lexer::CLOSE_BRACE)) {
         std::string path;
         if(!lexer.string_literal(path)) {
             return false;
@@ -309,7 +309,7 @@ bool Scene::scan_models(Lexer& lexer)
         }
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -318,15 +318,15 @@ bool Scene::scan_models(Lexer& lexer)
 
 bool Scene::scan_renderables(Lexer& lexer)
 {
-    if(!lexer.match(RENDERABLES)) {
+    if(!lexer.match(DoomLexer::RENDERABLES)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
-    while(!lexer.check_token(CLOSE_BRACE)) {
+    while(!lexer.check_token(Lexer::CLOSE_BRACE)) {
         std::string type;
         if(!lexer.string_literal(type)) {
             return false;
@@ -343,7 +343,7 @@ bool Scene::scan_renderables(Lexer& lexer)
         }
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -461,15 +461,15 @@ bool Scene::scan_actor(Lexer& lexer, const std::string& type)
 
 bool Scene::scan_lights(Lexer& lexer)
 {
-    if(!lexer.match(LIGHTS)) {
+    if(!lexer.match(DoomLexer::LIGHTS)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
-    while(!lexer.check_token(CLOSE_BRACE)) {
+    while(!lexer.check_token(Lexer::CLOSE_BRACE)) {
         std::string type;
         if(!lexer.string_literal(type)) {
             return false;

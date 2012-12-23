@@ -41,13 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_52_0\</IncludePath>
-    <LibraryPath>C:\freetype-2.3.5-1\lib;C:\SDL-1.2.14\lib;C:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win32;C:\Program Files (x86)\OpenAL 1.1 SDK\libs;C:\lpng158\projects\vstudio\Release;C:\glew-1.7.0\lib;C:\boost_1_48_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\lpng1513;C:\freetype-2.3.5-1-bin\include\freetype2;C:\freetype-2.3.5-1-bin\include;C:\SDL-1.2.15\include;C:\freealut-1.1.0-bin\include;C:\glew-1.9.0\include;C:\boost_1_52_0\;C:\openal-soft-1.15-bin\include\AL;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\freetype-2.3.5-1-bin\lib;C:\SDL-1.2.15\lib;C:\lpng1513\projects\vstudio\Release;C:\glew-1.9.0\lib;C:\boost_1_52_0\stage\lib;C:\freealut-1.1.0-bin\lib;C:\openal-soft-1.15-bin\lib\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_52_0\</IncludePath>
-    <LibraryPath>C:\freetype-2.3.5-1\lib;C:\SDL-1.2.14\lib;C:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win32;C:\Program Files (x86)\OpenAL 1.1 SDK\libs;C:\lpng158\projects\vstudio\Release;C:\glew-1.7.0\lib;C:\boost_1_48_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\lpng1513;C:\freetype-2.3.5-1-bin\include\freetype2;C:\freetype-2.3.5-1-bin\include;C:\SDL-1.2.15\include;C:\freealut-1.1.0-bin\include;C:\glew-1.9.0\include;C:\boost_1_52_0\;C:\openal-soft-1.15-bin\include\AL;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\freetype-2.3.5-1-bin\lib;C:\SDL-1.2.15\lib;C:\lpng1513\projects\vstudio\Release;C:\glew-1.9.0\lib;C:\boost_1_52_0\stage\lib;C:\openal-soft-1.15-bin\lib\Win32;C:\freealut-1.1.0-bin\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -56,12 +56,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;USE_SSE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>src/pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2012\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>userenv.lib;glew32.lib;opengl32.lib;glu32.lib;libpng15.lib;alut.lib;openal32.lib;SDL.lib;SDLmain.lib;freetype.lib;libboost_filesystem-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>userenv.lib;glew32.lib;opengl32.lib;glu32.lib;libpng15.lib;alut.lib;openal32.lib;SDL.lib;SDLmain.lib;freetype.lib;libboost_filesystem-vc110-mt-gd-1_52.lib;libboost_date_time-vc110-mt-gd-1_52.lib;libboost_system-vc110-mt-gd-1_52.lib;libboost_thread-vc110-mt-gd-1_52.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -73,14 +73,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;USE_SSE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>src/pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2012\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>userenv.lib;glew32.lib;opengl32.lib;glu32.lib;libpng15.lib;alut.lib;openal32.lib;SDL.lib;SDLmain.lib;freetype.lib;libboost_filesystem-vc100-mt-1_48.lib;libboost_date_time-vc100-mt-1_48.lib;libboost_system-vc100-mt-1_48.lib;libboost_thread-vc100-mt-1_48.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>userenv.lib;glew32.lib;opengl32.lib;glu32.lib;libpng15.lib;alut.lib;openal32.lib;SDL.lib;SDLmain.lib;freetype.lib;libboost_filesystem-vc110-mt-1_52.lib;libboost_date_time-vc110-mt-1_52.lib;libboost_system-vc110-mt-1_52.lib;libboost_thread-vc110-mt-1_52.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

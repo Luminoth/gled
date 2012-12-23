@@ -386,7 +386,7 @@ bool D3Map::load_map(const boost::filesystem::path& path)
     }
 
     // map is just a list of entities
-    while(!lexer.check_token(END)) {
+    while(!lexer.check_token(Lexer::END)) {
         if(!scan_map_entity(lexer)) {
             return false;
         }
@@ -405,7 +405,7 @@ bool D3Map::load_map(const boost::filesystem::path& path)
 
 bool D3Map::scan_map_version(Lexer& lexer)
 {
-    if(!lexer.match(VERSION)) {
+    if(!lexer.match(DoomLexer::VERSION)) {
         return false;
     }
 
@@ -419,7 +419,7 @@ bool D3Map::scan_map_version(Lexer& lexer)
 
 bool D3Map::scan_map_entity(Lexer& lexer)
 {
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -428,7 +428,7 @@ bool D3Map::scan_map_entity(Lexer& lexer)
     boost::shared_ptr<Entity> entity(new(16, allocator) Entity(), boost::bind(&D3Map::destroy_entity, _1, &allocator));
 
     // read the key/value pairs
-    while(!lexer.check_token(OPEN_BRACE) && !lexer.check_token(CLOSE_BRACE)) {
+    while(!lexer.check_token(Lexer::OPEN_BRACE) && !lexer.check_token(Lexer::CLOSE_BRACE)) {
         std::string key;
         if(!lexer.string_literal(key)) {
             return false;
@@ -443,13 +443,13 @@ bool D3Map::scan_map_entity(Lexer& lexer)
     }
 
     // scan brushes
-    if(!lexer.check_token(CLOSE_BRACE)) {
+    if(!lexer.check_token(Lexer::CLOSE_BRACE)) {
         if(!scan_map_brushes(lexer, entity)) {
             return false;
         }
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -476,21 +476,21 @@ bool D3Map::scan_map_entity(Lexer& lexer)
 
 bool D3Map::scan_map_brushes(Lexer& lexer, boost::shared_ptr<Entity> entity)
 {
-    while(!lexer.check_token(CLOSE_BRACE)) {
-        if(!lexer.match(OPEN_BRACE)) {
+    while(!lexer.check_token(Lexer::CLOSE_BRACE)) {
+        if(!lexer.match(Lexer::OPEN_BRACE)) {
             return false;
         }
 
         // either a brush or a patch
-        if(lexer.check_token(BRUSHDEF3)) {
+        if(lexer.check_token(DoomLexer::BRUSHDEF3)) {
             if(!scan_map_brushdef3(lexer, entity)) {
                 return false;
             }
-        } else if(lexer.check_token(PATCHDEF2)) {
+        } else if(lexer.check_token(DoomLexer::PATCHDEF2)) {
             if(!scan_map_patchdef2(lexer, entity)) {
                 return false;
             }
-        } else if(lexer.check_token(PATCHDEF3)) {
+        } else if(lexer.check_token(DoomLexer::PATCHDEF3)) {
             if(!scan_map_patchdef3(lexer, entity)) {
                 return false;
             }
@@ -499,7 +499,7 @@ bool D3Map::scan_map_brushes(Lexer& lexer, boost::shared_ptr<Entity> entity)
             return false;
         }
 
-        if(!lexer.match(CLOSE_BRACE)) {
+        if(!lexer.match(Lexer::CLOSE_BRACE)) {
             return false;
         }
     }
@@ -509,21 +509,21 @@ bool D3Map::scan_map_brushes(Lexer& lexer, boost::shared_ptr<Entity> entity)
 
 bool D3Map::scan_map_brushdef3(Lexer& lexer, boost::shared_ptr<Entity> entity)
 {
-    if(!lexer.match(BRUSHDEF3)) {
+    if(!lexer.match(DoomLexer::BRUSHDEF3)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
-    while(!lexer.check_token(CLOSE_BRACE)) {
+    while(!lexer.check_token(Lexer::CLOSE_BRACE)) {
         if(!scan_map_brush(lexer, entity)) {
             return false;
         }
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -532,7 +532,7 @@ bool D3Map::scan_map_brushdef3(Lexer& lexer, boost::shared_ptr<Entity> entity)
 
 bool D3Map::scan_map_brush(Lexer& lexer, boost::shared_ptr<Entity> entity)
 {
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -561,7 +561,7 @@ bool D3Map::scan_map_brush(Lexer& lexer, boost::shared_ptr<Entity> entity)
         return false;
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -570,11 +570,11 @@ bool D3Map::scan_map_brush(Lexer& lexer, boost::shared_ptr<Entity> entity)
     boost::shared_ptr<Brush> brush(new(16, allocator) Brush(), boost::bind(&D3Map::destroy_brush, _1, &allocator));
     brush->plane = Plane(swizzle(normal), d);
 
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -593,11 +593,11 @@ bool D3Map::scan_map_brush(Lexer& lexer, boost::shared_ptr<Entity> entity)
         return false;
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -616,11 +616,11 @@ bool D3Map::scan_map_brush(Lexer& lexer, boost::shared_ptr<Entity> entity)
         return false;
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -650,11 +650,11 @@ bool D3Map::scan_map_brush(Lexer& lexer, boost::shared_ptr<Entity> entity)
 
 bool D3Map::scan_map_patchdef2(Lexer& lexer, boost::shared_ptr<Entity> entity)
 {
-    if(!lexer.match(PATCHDEF2)) {
+    if(!lexer.match(DoomLexer::PATCHDEF2)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -668,7 +668,7 @@ bool D3Map::scan_map_patchdef2(Lexer& lexer, boost::shared_ptr<Entity> entity)
     boost::shared_ptr<Patch2> patch(new(16, allocator) Patch2(), boost::bind(&D3Map::destroy_patch2, _1, &allocator));
     patch->material = material;
 
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -702,7 +702,7 @@ bool D3Map::scan_map_patchdef2(Lexer& lexer, boost::shared_ptr<Entity> entity)
     // TODO: swizzle?
     patch->scale = Vector2(x, y);
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -710,7 +710,7 @@ bool D3Map::scan_map_patchdef2(Lexer& lexer, boost::shared_ptr<Entity> entity)
         return false;
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -721,11 +721,11 @@ bool D3Map::scan_map_patchdef2(Lexer& lexer, boost::shared_ptr<Entity> entity)
 
 bool D3Map::scan_map_patchdef3(Lexer& lexer, boost::shared_ptr<Entity> entity)
 {
-    if(!lexer.match(PATCHDEF3)) {
+    if(!lexer.match(DoomLexer::PATCHDEF3)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -739,7 +739,7 @@ bool D3Map::scan_map_patchdef3(Lexer& lexer, boost::shared_ptr<Entity> entity)
     boost::shared_ptr<Patch3> patch(new(16, allocator) Patch3(), boost::bind(&D3Map::destroy_patch3, _1, &allocator));
     patch->material = material;
 
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -782,7 +782,7 @@ bool D3Map::scan_map_patchdef3(Lexer& lexer, boost::shared_ptr<Entity> entity)
     // TODO: swizzle?
     patch->scale = Vector3(x, y, z);
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -790,7 +790,7 @@ bool D3Map::scan_map_patchdef3(Lexer& lexer, boost::shared_ptr<Entity> entity)
         return false;
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -801,17 +801,17 @@ bool D3Map::scan_map_patchdef3(Lexer& lexer, boost::shared_ptr<Entity> entity)
 
 bool D3Map::scan_patch_control_grid(Lexer& lexer, boost::shared_ptr<Patch> patch)
 {
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
-    while(!lexer.check_token(CLOSE_PAREN)) {
+    while(!lexer.check_token(Lexer::CLOSE_PAREN)) {
         if(!scan_patch_control_grid_row(lexer, patch)) {
             return false;
         }
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -820,17 +820,17 @@ bool D3Map::scan_patch_control_grid(Lexer& lexer, boost::shared_ptr<Patch> patch
 
 bool D3Map::scan_patch_control_grid_row(Lexer& lexer, boost::shared_ptr<Patch> patch)
 {
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
-    while(!lexer.check_token(CLOSE_PAREN)) {
+    while(!lexer.check_token(Lexer::CLOSE_PAREN)) {
         if(!scan_patch_control_point(lexer, patch)) {
             return false;
         }
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -839,7 +839,7 @@ bool D3Map::scan_patch_control_grid_row(Lexer& lexer, boost::shared_ptr<Patch> p
 
 bool D3Map::scan_patch_control_point(Lexer& lexer, boost::shared_ptr<Patch> patch)
 {
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -870,7 +870,7 @@ bool D3Map::scan_patch_control_point(Lexer& lexer, boost::shared_ptr<Patch> patc
 
 //LOG_ERROR("TODO: handle patch defs!\n");
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -891,20 +891,20 @@ bool D3Map::load_proc(const boost::filesystem::path& path)
         return false;
     }
 
-    while(!lexer.check_token(END)) {
-        if(lexer.check_token(MODEL)) {
+    while(!lexer.check_token(Lexer::END)) {
+        if(lexer.check_token(DoomLexer::MODEL)) {
             if(!scan_proc_model(lexer)) {
                 return false;
             }
-        } else if(lexer.check_token(PORTALS)) {
+        } else if(lexer.check_token(DoomLexer::PORTALS)) {
             if(!scan_proc_portals(lexer)) {
                 return false;
             }
-        } else if(lexer.check_token(NODES)) {
+        } else if(lexer.check_token(DoomLexer::NODES)) {
             if(!scan_proc_nodes(lexer)) {
                 return false;
             }
-        } else if(lexer.check_token(SHADOW_MODEL)) {
+        } else if(lexer.check_token(DoomLexer::SHADOW_MODEL)) {
             if(!scan_proc_shadow_model(lexer)) {
                 return false;
             }
@@ -916,7 +916,7 @@ bool D3Map::load_proc(const boost::filesystem::path& path)
 
 bool D3Map::scan_proc_header(Lexer& lexer)
 {
-    if(!lexer.match(MAP_PROC_FILE)) {
+    if(!lexer.match(DoomLexer::MAP_PROC_FILE)) {
         return false;
     }
 
@@ -925,11 +925,11 @@ bool D3Map::scan_proc_header(Lexer& lexer)
 
 bool D3Map::scan_proc_model(Lexer& lexer)
 {
-    if(!lexer.match(MODEL)) {
+    if(!lexer.match(DoomLexer::MODEL)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -965,7 +965,7 @@ bool D3Map::scan_proc_model(Lexer& lexer)
         _acount++;
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -974,7 +974,7 @@ bool D3Map::scan_proc_model(Lexer& lexer)
 
 bool D3Map::scan_proc_surface(Lexer& lexer, boost::shared_ptr<Surface> surface)
 {
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -1040,7 +1040,7 @@ bool D3Map::scan_proc_surface(Lexer& lexer, boost::shared_ptr<Surface> surface)
         triangle.v3 = a;
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -1054,7 +1054,7 @@ bool D3Map::scan_proc_surface(Lexer& lexer, boost::shared_ptr<Surface> surface)
 
 bool D3Map::scan_proc_vertex(Lexer& lexer, boost::shared_ptr<Surface> surface, int index)
 {
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -1103,7 +1103,7 @@ bool D3Map::scan_proc_vertex(Lexer& lexer, boost::shared_ptr<Surface> surface, i
     }
     normal.z(value);
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -1119,11 +1119,11 @@ bool D3Map::scan_proc_vertex(Lexer& lexer, boost::shared_ptr<Surface> surface, i
 
 bool D3Map::scan_proc_portals(Lexer& lexer)
 {
-    if(!lexer.match(PORTALS)) {
+    if(!lexer.match(DoomLexer::PORTALS)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -1148,7 +1148,7 @@ bool D3Map::scan_proc_portals(Lexer& lexer)
         }
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -1173,7 +1173,7 @@ bool D3Map::scan_proc_portal(Lexer& lexer)
     }
 
     for(int i=0; i<vertex_count; ++i) {
-        if(!lexer.match(OPEN_PAREN)) {
+        if(!lexer.match(Lexer::OPEN_PAREN)) {
             return false;
         }
 
@@ -1194,7 +1194,7 @@ bool D3Map::scan_proc_portal(Lexer& lexer)
 
 //LOG_ERROR("TODO: store portal!");
 
-        if(!lexer.match(CLOSE_PAREN)) {
+        if(!lexer.match(Lexer::CLOSE_PAREN)) {
             return false;
         }
     }
@@ -1204,11 +1204,11 @@ bool D3Map::scan_proc_portal(Lexer& lexer)
 
 bool D3Map::scan_proc_nodes(Lexer& lexer)
 {
-    if(!lexer.match(NODES)) {
+    if(!lexer.match(DoomLexer::NODES)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -1223,7 +1223,7 @@ bool D3Map::scan_proc_nodes(Lexer& lexer)
         }
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -1232,7 +1232,7 @@ bool D3Map::scan_proc_nodes(Lexer& lexer)
 
 bool D3Map::scan_proc_node(Lexer& lexer)
 {
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -1256,7 +1256,7 @@ bool D3Map::scan_proc_node(Lexer& lexer)
         return false;
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 
@@ -1277,11 +1277,11 @@ bool D3Map::scan_proc_node(Lexer& lexer)
 
 bool D3Map::scan_proc_shadow_model(Lexer& lexer)
 {
-    if(!lexer.match(SHADOW_MODEL)) {
+    if(!lexer.match(DoomLexer::SHADOW_MODEL)) {
         return false;
     }
 
-    if(!lexer.match(OPEN_BRACE)) {
+    if(!lexer.match(Lexer::OPEN_BRACE)) {
         return false;
     }
 
@@ -1328,7 +1328,7 @@ bool D3Map::scan_proc_shadow_model(Lexer& lexer)
         }
     }
 
-    if(!lexer.match(CLOSE_BRACE)) {
+    if(!lexer.match(Lexer::CLOSE_BRACE)) {
         return false;
     }
 
@@ -1339,7 +1339,7 @@ bool D3Map::scan_proc_shadow_model(Lexer& lexer)
 
 bool D3Map::scan_proc_shadow_vertex(Lexer& lexer)
 {
-    if(!lexer.match(OPEN_PAREN)) {
+    if(!lexer.match(Lexer::OPEN_PAREN)) {
         return false;
     }
 
@@ -1356,7 +1356,7 @@ bool D3Map::scan_proc_shadow_vertex(Lexer& lexer)
         return false;
     }
 
-    if(!lexer.match(CLOSE_PAREN)) {
+    if(!lexer.match(Lexer::CLOSE_PAREN)) {
         return false;
     }
 

@@ -331,27 +331,27 @@ void Shader::load(const boost::filesystem::path& path) throw(ShaderError)
     }
 
     std::string scratch;
-    while(!lexer.check_token(END)) {
-        if(lexer.check_token(VERTEX_SHADER)) {
-            lexer.match(VERTEX_SHADER);
+    while(!lexer.check_token(Lexer::END)) {
+        if(lexer.check_token(DoomLexer::VERTEX_SHADER)) {
+            lexer.match(DoomLexer::VERTEX_SHADER);
             if(!lexer.string_literal(scratch)) {
                 throw ShaderError("Shader parse error!");
             }
             read_shader_source(shader_dir() / scratch);
-        } else if(lexer.check_token(GEOMETRY_SHADER)) {
-            lexer.match(GEOMETRY_SHADER);
+        } else if(lexer.check_token(DoomLexer::GEOMETRY_SHADER)) {
+            lexer.match(DoomLexer::GEOMETRY_SHADER);
             if(!lexer.string_literal(scratch)) {
                 throw ShaderError("Shader parse error!");
             }
             read_shader_source(shader_dir() / scratch);
-        } else if(lexer.check_token(FRAGMENT_SHADER)) {
-            lexer.match(FRAGMENT_SHADER);
+        } else if(lexer.check_token(DoomLexer::FRAGMENT_SHADER)) {
+            lexer.match(DoomLexer::FRAGMENT_SHADER);
             if(!lexer.string_literal(scratch)) {
                 throw ShaderError("Shader parse error!");
             }
             read_shader_source(shader_dir() / scratch);
-        } else if(lexer.check_token(FRAGMENT_DATA)) {
-            lexer.match(FRAGMENT_DATA);
+        } else if(lexer.check_token(DoomLexer::FRAGMENT_DATA)) {
+            lexer.match(DoomLexer::FRAGMENT_DATA);
 
             int n=0;
             if(!lexer.int_literal(n)) {
