@@ -1,0 +1,23 @@
+# all of these values are optional and can appear in any order
+
+ambient 0.1 0.1 0.1 1.0
+diffuse 0.8 0.8 0.8 1.0
+specular 1.0 1.0 1.0 1.0
+emissive 0.1 0.1 0.1 1.0
+shininess 32.0
+
+# relative to the shaders directory
+shader "simple"
+
+# relative to the textures directory
+# for now only the detail texture has options (which are themselves entirely optional)
+detail "example"
+{
+    nomipmap
+    nocompress
+    norepeat
+    border
+}
+normalmap "example_n"
+specularmap "example_s"
+emissionmap "example_e"

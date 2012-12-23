@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{09d8b9cc-5765-4d1a-8b59-5729cb459e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{ac31c35e-c7e0-4e90-a305-0e496dab11a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{7be368cc-71a7-4fc2-90db-b7c4bd231aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\configuration">
+      <UniqueIdentifier>{a60abaa1-5ca1-4b5f-ba17-13935cfa322b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\errors">
+      <UniqueIdentifier>{051f4b69-d270-40b1-8b66-d2d9bfcf248b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\logging">
+      <UniqueIdentifier>{90a18fbb-0f73-4c8a-8b5d-32ccb525ac32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\math">
+      <UniqueIdentifier>{72d253e0-b28f-412b-9413-38af0ec57151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\physics">
+      <UniqueIdentifier>{6809d801-aadf-4cdb-a798-bb6f95444141}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\util">
+      <UniqueIdentifier>{d4bc2b65-be01-4ef6-814d-df04f3b005cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\audio">
+      <UniqueIdentifier>{3a5a5bd0-7d2a-4768-9593-e02a8da6c512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\gui">
+      <UniqueIdentifier>{737fb30b-60a1-4859-99ff-90ac894e4323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\renderer">
+      <UniqueIdentifier>{515d0861-1024-4157-9a61-7f06b8970861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\scene">
+      <UniqueIdentifier>{477376dc-bfbc-44c5-9300-feb0ffd7926f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\ui">
+      <UniqueIdentifier>{d496f914-eb18-4655-9fba-91ea29621f12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\thread">
+      <UniqueIdentifier>{d36b1c59-9630-4335-9073-5b50d668a943}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pch.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\targetver.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\configuration\Configuration.h">
+      <Filter>Source Files\core\configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\errors\NotImplementedError.h">
+      <Filter>Source Files\core\errors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\logging\Logger.h">
+      <Filter>Source Files\core\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Geometry.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Intersectable.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\math_util.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Matrix3.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Matrix4.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Plane.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Quaternion.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Sphere.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\math\Vector.h">
+      <Filter>Source Files\core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\physics\AABB.h">
+      <Filter>Source Files\core\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\physics\BoundingSphere.h">
+      <Filter>Source Files\core\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\physics\BoundingVolume.h">
+      <Filter>Source Files\core\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\physics\Physical.h">
+      <Filter>Source Files\core\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\Bitmap.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\fs_util.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\Lexer.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\MemoryAllocator.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\PNG.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\StackAllocator.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\string_util.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\SystemAllocator.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\Targa.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\Texture.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\util\util.h">
+      <Filter>Source Files\core\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\common.h">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\audio\Audio.h">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\gui\StaticTextCtrl.h">
+      <Filter>Source Files\engine\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\gui\Window.h">
+      <Filter>Source Files\engine\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Animation.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Camera.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Font.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\gl_defs.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Light.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Material.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\MD5Animation.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\MD5Model.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Mesh.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Model.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\ModelManager.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Pickable.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Renderable.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Renderer.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\Shader.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Actor.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Character.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\D3Map.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Map.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Monster.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Nameplate.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Q3BSP.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Scene.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\scene\Static.h">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ui\InputState.h">
+      <Filter>Source Files\engine\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ui\InputSym.h">
+      <Filter>Source Files\engine\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ui\UIController.h">
+      <Filter>Source Files\engine\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\Engine.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ResourceManager.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\State.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\EventHandler.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\GameUIController.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\GameConfiguration.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Player.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\EngineConfiguration.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\thread\BaseJob.h">
+      <Filter>Source Files\core\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\thread\BaseThread.h">
+      <Filter>Source Files\core\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\thread\ThreadPool.h">
+      <Filter>Source Files\core\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\UpdateThread.h">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\renderer\RenderCommandQueue.h">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pch.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\configuration\Configuration.cc">
+      <Filter>Source Files\core\configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\logging\Logger.cc">
+      <Filter>Source Files\core\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\math\Geometry.cc">
+      <Filter>Source Files\core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\math\Matrix3.cc">
+      <Filter>Source Files\core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\math\Matrix4.cc">
+      <Filter>Source Files\core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\math\Plane.cc">
+      <Filter>Source Files\core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\math\Quaternion.cc">
+      <Filter>Source Files\core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\math\Sphere.cc">
+      <Filter>Source Files\core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\math\Vector.cc">
+      <Filter>Source Files\core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\physics\AABB.cc">
+      <Filter>Source Files\core\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\physics\BoundingSphere.cc">
+      <Filter>Source Files\core\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\physics\Physical.cc">
+      <Filter>Source Files\core\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\Bitmap.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\fs_util.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\Lexer.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\MemoryAllocator.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\PNG.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\StackAllocator.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\string_util.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\SystemAllocator.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\Targa.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\Texture.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\util\util.cc">
+      <Filter>Source Files\core\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\common.cc">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\audio\Audio.cc">
+      <Filter>Source Files\engine\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\gui\StaticTextCtrl.cc">
+      <Filter>Source Files\engine\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\gui\Window.cc">
+      <Filter>Source Files\engine\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Animation.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Camera.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Font.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Light.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Material.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\MD5Animation.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\MD5Model.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Mesh.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Model.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\ModelManager.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Pickable.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Renderable.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Renderer.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\Shader.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Actor.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Character.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\D3Map.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Map.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Monster.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Nameplate.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Q3BSP.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Scene.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\scene\Static.cc">
+      <Filter>Source Files\engine\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ui\InputState.cc">
+      <Filter>Source Files\engine\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ui\UIController.cc">
+      <Filter>Source Files\engine\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\Engine.cc">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ResourceManager.cc">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\State.cc">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\EventHandler.cc">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\GameUIController.cc">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\main.cc">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\GameConfiguration.cc">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Player.cc">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\EngineConfiguration.cc">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\thread\BaseThread.cc">
+      <Filter>Source Files\core\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\thread\ThreadPool.cc">
+      <Filter>Source Files\core\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\UpdateThread.cc">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\renderer\RenderCommandQueue.cc">
+      <Filter>Source Files\engine\renderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="gled.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

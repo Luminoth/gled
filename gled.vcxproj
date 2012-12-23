@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{354BE64A-0DAB-491F-95D6-4C5990329376}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>gled</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_48_0\;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\freetype-2.3.5-1\lib;C:\SDL-1.2.14\lib;C:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win32;C:\Program Files (x86)\OpenAL 1.1 SDK\libs;C:\lpng158\projects\vstudio\Release;C:\glew-1.7.0\lib;C:\boost_1_48_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_48_0\;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\freetype-2.3.5-1\lib;C:\SDL-1.2.14\lib;C:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win32;C:\Program Files (x86)\OpenAL 1.1 SDK\libs;C:\lpng158\projects\vstudio\Release;C:\glew-1.7.0\lib;C:\boost_1_48_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;USE_SSE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>src/pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2010\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>userenv.lib;glew32.lib;opengl32.lib;glu32.lib;libpng15.lib;alut.lib;openal32.lib;SDL.lib;SDLmain.lib;freetype.lib;libboost_filesystem-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;USE_SSE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>src/pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2010\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>userenv.lib;glew32.lib;opengl32.lib;glu32.lib;libpng15.lib;alut.lib;openal32.lib;SDL.lib;SDLmain.lib;freetype.lib;libboost_filesystem-vc100-mt-1_48.lib;libboost_date_time-vc100-mt-1_48.lib;libboost_system-vc100-mt-1_48.lib;libboost_thread-vc100-mt-1_48.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="src\core\common.h" />
+    <ClInclude Include="src\core\configuration\Configuration.h" />
+    <ClInclude Include="src\core\errors\NotImplementedError.h" />
+    <ClInclude Include="src\core\logging\Logger.h" />
+    <ClInclude Include="src\core\math\Geometry.h" />
+    <ClInclude Include="src\core\math\Intersectable.h" />
+    <ClInclude Include="src\core\math\math_util.h" />
+    <ClInclude Include="src\core\math\Matrix3.h" />
+    <ClInclude Include="src\core\math\Matrix4.h" />
+    <ClInclude Include="src\core\math\Plane.h" />
+    <ClInclude Include="src\core\math\Quaternion.h" />
+    <ClInclude Include="src\core\math\Sphere.h" />
+    <ClInclude Include="src\core\math\Vector.h" />
+    <ClInclude Include="src\core\physics\AABB.h" />
+    <ClInclude Include="src\core\physics\BoundingSphere.h" />
+    <ClInclude Include="src\core\physics\BoundingVolume.h" />
+    <ClInclude Include="src\core\physics\Physical.h" />
+    <ClInclude Include="src\core\thread\BaseJob.h" />
+    <ClInclude Include="src\core\thread\BaseThread.h" />
+    <ClInclude Include="src\core\thread\ThreadPool.h" />
+    <ClInclude Include="src\core\util\Bitmap.h" />
+    <ClInclude Include="src\core\util\fs_util.h" />
+    <ClInclude Include="src\core\util\Lexer.h" />
+    <ClInclude Include="src\core\util\MemoryAllocator.h" />
+    <ClInclude Include="src\core\util\PNG.h" />
+    <ClInclude Include="src\core\util\StackAllocator.h" />
+    <ClInclude Include="src\core\util\string_util.h" />
+    <ClInclude Include="src\core\util\SystemAllocator.h" />
+    <ClInclude Include="src\core\util\Targa.h" />
+    <ClInclude Include="src\core\util\Texture.h" />
+    <ClInclude Include="src\core\util\util.h" />
+    <ClInclude Include="src\engine\audio\Audio.h" />
+    <ClInclude Include="src\engine\Engine.h" />
+    <ClInclude Include="src\engine\EngineConfiguration.h" />
+    <ClInclude Include="src\engine\gui\StaticTextCtrl.h" />
+    <ClInclude Include="src\engine\gui\Window.h" />
+    <ClInclude Include="src\engine\renderer\Animation.h" />
+    <ClInclude Include="src\engine\renderer\Camera.h" />
+    <ClInclude Include="src\engine\renderer\Font.h" />
+    <ClInclude Include="src\engine\renderer\gl_defs.h" />
+    <ClInclude Include="src\engine\renderer\Light.h" />
+    <ClInclude Include="src\engine\renderer\Material.h" />
+    <ClInclude Include="src\engine\renderer\MD5Animation.h" />
+    <ClInclude Include="src\engine\renderer\MD5Model.h" />
+    <ClInclude Include="src\engine\renderer\Mesh.h" />
+    <ClInclude Include="src\engine\renderer\Model.h" />
+    <ClInclude Include="src\engine\renderer\ModelManager.h" />
+    <ClInclude Include="src\engine\renderer\Pickable.h" />
+    <ClInclude Include="src\engine\renderer\Renderable.h" />
+    <ClInclude Include="src\engine\renderer\RenderCommandQueue.h" />
+    <ClInclude Include="src\engine\renderer\Renderer.h" />
+    <ClInclude Include="src\engine\renderer\Shader.h" />
+    <ClInclude Include="src\engine\ResourceManager.h" />
+    <ClInclude Include="src\engine\scene\Actor.h" />
+    <ClInclude Include="src\engine\scene\Character.h" />
+    <ClInclude Include="src\engine\scene\D3Map.h" />
+    <ClInclude Include="src\engine\scene\Map.h" />
+    <ClInclude Include="src\engine\scene\Monster.h" />
+    <ClInclude Include="src\engine\scene\Nameplate.h" />
+    <ClInclude Include="src\engine\scene\Q3BSP.h" />
+    <ClInclude Include="src\engine\scene\Scene.h" />
+    <ClInclude Include="src\engine\scene\Static.h" />
+    <ClInclude Include="src\engine\State.h" />
+    <ClInclude Include="src\engine\ui\InputState.h" />
+    <ClInclude Include="src\engine\ui\InputSym.h" />
+    <ClInclude Include="src\engine\ui\UIController.h" />
+    <ClInclude Include="src\engine\UpdateThread.h" />
+    <ClInclude Include="src\game\EventHandler.h" />
+    <ClInclude Include="src\game\GameConfiguration.h" />
+    <ClInclude Include="src\game\GameUIController.h" />
+    <ClInclude Include="src\game\Player.h" />
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\common.cc" />
+    <ClCompile Include="src\core\configuration\Configuration.cc" />
+    <ClCompile Include="src\core\logging\Logger.cc" />
+    <ClCompile Include="src\core\math\Geometry.cc" />
+    <ClCompile Include="src\core\math\Matrix3.cc" />
+    <ClCompile Include="src\core\math\Matrix4.cc" />
+    <ClCompile Include="src\core\math\Plane.cc" />
+    <ClCompile Include="src\core\math\Quaternion.cc" />
+    <ClCompile Include="src\core\math\Sphere.cc" />
+    <ClCompile Include="src\core\math\Vector.cc" />
+    <ClCompile Include="src\core\physics\AABB.cc" />
+    <ClCompile Include="src\core\physics\BoundingSphere.cc" />
+    <ClCompile Include="src\core\physics\Physical.cc" />
+    <ClCompile Include="src\core\thread\BaseThread.cc" />
+    <ClCompile Include="src\core\thread\ThreadPool.cc" />
+    <ClCompile Include="src\core\util\Bitmap.cc" />
+    <ClCompile Include="src\core\util\fs_util.cc" />
+    <ClCompile Include="src\core\util\Lexer.cc" />
+    <ClCompile Include="src\core\util\MemoryAllocator.cc" />
+    <ClCompile Include="src\core\util\PNG.cc" />
+    <ClCompile Include="src\core\util\StackAllocator.cc" />
+    <ClCompile Include="src\core\util\string_util.cc" />
+    <ClCompile Include="src\core\util\SystemAllocator.cc" />
+    <ClCompile Include="src\core\util\Targa.cc" />
+    <ClCompile Include="src\core\util\Texture.cc" />
+    <ClCompile Include="src\core\util\util.cc" />
+    <ClCompile Include="src\engine\audio\Audio.cc" />
+    <ClCompile Include="src\engine\Engine.cc" />
+    <ClCompile Include="src\engine\EngineConfiguration.cc" />
+    <ClCompile Include="src\engine\gui\StaticTextCtrl.cc" />
+    <ClCompile Include="src\engine\gui\Window.cc" />
+    <ClCompile Include="src\engine\renderer\Animation.cc" />
+    <ClCompile Include="src\engine\renderer\Camera.cc" />
+    <ClCompile Include="src\engine\renderer\Font.cc" />
+    <ClCompile Include="src\engine\renderer\Light.cc" />
+    <ClCompile Include="src\engine\renderer\Material.cc" />
+    <ClCompile Include="src\engine\renderer\MD5Animation.cc" />
+    <ClCompile Include="src\engine\renderer\MD5Model.cc" />
+    <ClCompile Include="src\engine\renderer\Mesh.cc" />
+    <ClCompile Include="src\engine\renderer\Model.cc" />
+    <ClCompile Include="src\engine\renderer\ModelManager.cc" />
+    <ClCompile Include="src\engine\renderer\Pickable.cc" />
+    <ClCompile Include="src\engine\renderer\Renderable.cc" />
+    <ClCompile Include="src\engine\renderer\RenderCommandQueue.cc" />
+    <ClCompile Include="src\engine\renderer\Renderer.cc" />
+    <ClCompile Include="src\engine\renderer\Shader.cc" />
+    <ClCompile Include="src\engine\ResourceManager.cc" />
+    <ClCompile Include="src\engine\scene\Actor.cc" />
+    <ClCompile Include="src\engine\scene\Character.cc" />
+    <ClCompile Include="src\engine\scene\D3Map.cc" />
+    <ClCompile Include="src\engine\scene\Map.cc" />
+    <ClCompile Include="src\engine\scene\Monster.cc" />
+    <ClCompile Include="src\engine\scene\Nameplate.cc" />
+    <ClCompile Include="src\engine\scene\Q3BSP.cc" />
+    <ClCompile Include="src\engine\scene\Scene.cc" />
+    <ClCompile Include="src\engine\scene\Static.cc" />
+    <ClCompile Include="src\engine\State.cc" />
+    <ClCompile Include="src\engine\ui\InputState.cc" />
+    <ClCompile Include="src\engine\ui\UIController.cc" />
+    <ClCompile Include="src\engine\UpdateThread.cc" />
+    <ClCompile Include="src\game\EventHandler.cc" />
+    <ClCompile Include="src\game\GameConfiguration.cc" />
+    <ClCompile Include="src\game\GameUIController.cc" />
+    <ClCompile Include="src\game\main.cc" />
+    <ClCompile Include="src\game\Player.cc" />
+    <ClCompile Include="src\pch.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src/pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src/pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="gled.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
