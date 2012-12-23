@@ -41,12 +41,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_48_0\;$(IncludePath)</IncludePath>
+    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_52_0\</IncludePath>
     <LibraryPath>C:\freetype-2.3.5-1\lib;C:\SDL-1.2.14\lib;C:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win32;C:\Program Files (x86)\OpenAL 1.1 SDK\libs;C:\lpng158\projects\vstudio\Release;C:\glew-1.7.0\lib;C:\boost_1_48_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_48_0\;$(IncludePath)</IncludePath>
+    <IncludePath>C:\lpng158;C:\freetype-2.3.5-1\include\freetype2;C:\freetype-2.3.5-1\include;C:\SDL-1.2.14\include;C:\Program Files %28x86%29\OpenAL 1.1 SDK\include;C:\glew-1.7.0\include;C:\boost_1_52_0\</IncludePath>
     <LibraryPath>C:\freetype-2.3.5-1\lib;C:\SDL-1.2.14\lib;C:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win32;C:\Program Files (x86)\OpenAL 1.1 SDK\libs;C:\lpng158\projects\vstudio\Release;C:\glew-1.7.0\lib;C:\boost_1_48_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -56,7 +56,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;USE_SSE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>src/pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2010\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2012\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -73,7 +73,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;USE_SSE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>src/pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2010\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\shane\Documents\Visual Studio 2012\Projects\gled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
